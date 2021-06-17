@@ -11,3 +11,13 @@
 
 3. [Datasets for spatial join cost models](https://drive.google.com/drive/folders/196Sj0JizSCYNrnpyR2AL9TRxvEg2ioNe?usp=sharing) (Section 4.3)
 
+## Spatial data generators
+1. Generate data using Spider
+2. Generate data using open-source Python program
+3. Generate data using Spark API
+
+## Train and test spatial join cost estimation models
+1. Join selectivity estimation model
+2. MBR tests selectivity estimation model
+3. Algorithm selection model
+
