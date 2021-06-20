@@ -74,20 +74,20 @@ we would recommend you to install [Anaconda](https://docs.anaconda.com/anaconda/
 ### Train and test proposed models
 1. Join selectivity estimation model
 ```shell script
-python main.py --model random_forest --tab data/train_and_test_all_features_split/train_join_results_small_x_small.csv --path trained_models/model_join_selectivity.h5 --weights trained_models/model_weights_join_selectivity.h5 --target join_selectivity --train
-python main.py --model random_forest --tab data/train_and_test_all_features_split/test_join_results_small_x_small.csv --path trained_models/model_join_selectivity.h5 --weights trained_models/model_weights_join_selectivity.h5 --target join_selectivity --no-train
+python main.py --model random_forest --tab data/train_and_test_all_features_split/train_join_results_small_x_small.csv --path trained_models/model_join_selectivity.h5 --target join_selectivity --train
+python main.py --model random_forest --tab data/train_and_test_all_features_split/test_join_results_small_x_small.csv --path trained_models/model_join_selectivity.h5 --target join_selectivity --no-train
 ```
 
 2. MBR tests selectivity estimation model
 ```shell script
-python main.py --model random_forest --tab data/train_and_test_all_features_split/train_join_results_small_x_small.csv --path trained_models/model_mbr_tests_selectivity.h5 --weights trained_models/model_weights_mbr_tests_selectivity.h5 --target mbr_tests_selectivity --train
-python main.py --model random_forest --tab data/train_and_test_all_features_split/test_join_results_small_x_small.csv --path trained_models/model_mbr_tests_selectivity.h5 --weights trained_models/model_weights_mbr_tests_selectivity.h5 --target mbr_tests_selectivity --no-train
+python main.py --model random_forest --tab data/train_and_test_all_features_split/train_join_results_small_x_small.csv --path trained_models/model_mbr_tests_selectivity.h5 --target mbr_tests_selectivity --train
+python main.py --model random_forest --tab data/train_and_test_all_features_split/test_join_results_small_x_small.csv --path trained_models/model_mbr_tests_selectivity.h5 --target mbr_tests_selectivity --no-train
 ```
 
 3. Algorithm selection model
 ```shell script
-python main.py --model clf_random_forest --tab data/train_and_test_all_features_split/train_join_results_combined_v3.csv --path trained_models/model_best_algorithm.h5 --weights trained_models/model_weights_best_algorithm.h5 --target best_algorithm --train
-python main.py --model clf_random_forest --tab data/train_and_test_all_features_split/test_join_results_combined_v3.csv --path trained_models/model_best_algorithm.h5 --weights trained_models/model_weights_best_algorithm.h5 --target best_algorithm --no-train
+python main.py --model clf_random_forest --tab data/train_and_test_all_features_split/train_join_results_combined_v3.csv --path trained_models/model_best_algorithm.h5 --target best_algorithm --train
+python main.py --model clf_random_forest --tab data/train_and_test_all_features_split/test_join_results_combined_v3.csv --path trained_models/model_best_algorithm.h5 --target best_algorithm --no-train
 
 ```
 

@@ -10,7 +10,6 @@ def main():
     parser.add_option('-t', '--tab', type='string', help='Path to the tabular data file(CSV)')
     parser.add_option('-l', '--target', type='string', help='Target (performance metric) of the estimation model')
     parser.add_option('-p', '--path', type='string', help='Path to the model to be saved')
-    parser.add_option('-w', '--weights', type='string', help='Path to the model weights to be saved')
     parser.add_option('--train', action="store_true", dest="train", default=True)
     parser.add_option('--no-train', action="store_false", dest="train")
 
@@ -33,13 +32,12 @@ def main():
         tabular_path = options_dict['tab']
         target = options_dict['target']
         model_path = options_dict['path']
-        model_weights_path = options_dict['weights']
         is_train = options_dict['train']
 
         if is_train:
-            model.train(tabular_path, target, model_path, model_weights_path)
+            model.train(tabular_path, target, model_path)
         else:
-            mae, mape, mse, msle = model.test(tabular_path, target, model_path, model_weights_path)
+            mae, mape, mse, msle = model.test(tabular_path, target, model_path)
             if model_name in ['clf_decision_tree', 'clf_random_forest']:
                 exit(1)
             print('mae: {}\nmape: {}\nmse: {}\nmlse: {}'.format(mae, mape, mse, msle))
