@@ -56,7 +56,7 @@ class PointGenerator(Generator):
 
     def generate_and_write(self):
 
-        output_filename = 'output/{0}.{1}'.format(self.output, self.output_format)
+        output_filename = '{0}.{1}'.format(self.output, self.output_format)
         f = open(output_filename, 'w', encoding='utf8')
 
         prev_point = None

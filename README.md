@@ -16,7 +16,15 @@ Management (CIKM 2021).
 
 ## Spatial data generators
 1. Generate data using Spider
+
+Please go to [Spider Web](https://spider.cs.ucr.edu/) to generate and visualize your spatial datasets.
 2. Generate data using open-source Python program
+```shell script
+# Show the help
+python3 generator.py -h
+# Generate a sample of 100 data points with uniform distribution
+python3 generator.py --dist uniform --card 100 --dim 2 --geo point --output uniform_sample --format csv
+```
 3. Generate data using Spark API
 
 ## Train and test spatial join cost estimation models
