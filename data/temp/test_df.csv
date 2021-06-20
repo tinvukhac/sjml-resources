@@ -1,7 +1,7 @@
 dataset1,dataset2,y_test,y_pred
 large_aws/Combo_005.csv,medium/parcel_009.csv,1.0,1.0
 real/OSM2015_lakes_data_big_06.csv,real/OSM2015_roads_data_big_02.csv,2.0,2.0
-large_aws/Combo_002.csv,medium/parcel_010.csv,2.0,4.0
+large_aws/Combo_002.csv,medium/parcel_010.csv,2.0,1.0
 A32,B32,2.0,2.0
 real/OSM2015_roads_data_big_03.csv,real/TIGER2017_LINEARWATER_data_big_18.csv,3.0,3.0
 large_aws/Combo_001.csv,medium/bit_010.csv,1.0,1.0
@@ -16,7 +16,7 @@ A120,B120,4.0,4.0
 real/OSM2015_lakes_data_big_06.csv,real/TIGER2018_FACES_data_big_26.csv,3.0,3.0
 real/OSM2015_buildings_data_big_15_13.csv,real/OSM2015_lakes_data_big_10.csv,3.0,3.0
 real/OSM2015_roads_data_big_03.csv,real/TIGER2017_LINEARWATER_data_big_23.csv,3.0,3.0
-large_aws/Combo_006.csv,medium/diagonal_003.csv,2.0,2.0
+large_aws/Combo_006.csv,medium/diagonal_003.csv,2.0,1.0
 real/OSM2015_buildings_data_big_15_11.csv,real/OSM2015_lakes_data_big_10.csv,2.0,2.0
 large_aws/Combo_002.csv,medium/uniform_003.csv,1.0,1.0
 A115,B115,2.0,2.0
@@ -95,8 +95,8 @@ large_aws/Combo_006.csv,medium/parcel_004.csv,2.0,1.0
 real/OSM2015_roads_data_big_02.csv,real/TIGER2018_FACES_data_big_02.csv,3.0,3.0
 real/OSM2015_lakes_data_big_14.csv,real/OSM2015_parks_data_big_13.csv,3.0,3.0
 A67,B67,2.0,2.0
-large_aws/Combo_001.csv,medium/diagonal_003.csv,4.0,2.0
-A68,B68,2.0,2.0
+large_aws/Combo_001.csv,medium/diagonal_003.csv,4.0,1.0
+A68,B68,2.0,4.0
 large_aws/Combo_003.csv,medium/parcel_002.csv,1.0,1.0
 large_aws/Combo_007.csv,medium/diagonal_007.csv,1.0,1.0
 real/OSM2015_lakes_data_big_14.csv,real/OSM2015_roads_data_big_17.csv,3.0,3.0
@@ -108,11 +108,11 @@ real/OSM2015_roads_data_big_02.csv,real/TIGER2018_EDGES_data_big_04.csv,2.0,3.0
 large_aws/Combo_007.csv,medium/diagonal_004.csv,1.0,1.0
 real/OSM2015_buildings_data_big_03.csv,real/TIGER2018_FACES_data_big_06.csv,3.0,3.0
 large_aws/Combo_006.csv,medium/parcel_006.csv,1.0,1.0
-large_aws/Combo_003.csv,medium/diagonal_003.csv,2.0,2.0
+large_aws/Combo_003.csv,medium/diagonal_003.csv,2.0,1.0
 real/OSM2015_roads_data_big_02.csv,real/TIGER2018_FACES_data_big_19.csv,3.0,3.0
 real/OSM2015_parks_data_big_02.csv,real/TIGER2018_EDGES_data_big_15.csv,3.0,3.0
 A119,B119,4.0,4.0
-A107,B107,4.0,4.0
+A107,B107,4.0,2.0
 A64,B64,2.0,2.0
 real/OSM2015_lakes_data_big_06.csv,real/TIGER2018_EDGES_data_big_35.csv,3.0,3.0
 real/OSM2015_parks_data_big_03.csv,real/TIGER2018_FACES_data_big_20.csv,3.0,3.0
@@ -120,7 +120,7 @@ A158,B158,2.0,2.0
 real/TIGER2018_EDGES_data_big_09.csv,real/TIGER2018_FACES_data_big_17.csv,3.0,3.0
 real/OSM2015_roads_data_big_02.csv,real/TIGER2017_LINEARWATER_data_big_18.csv,2.0,2.0
 large_aws/Combo_005.csv,medium/parcel_005.csv,2.0,1.0
-real/OSM2015_lakes_data_big_06.csv,real/TIGER2018_EDGES_data_big_15.csv,2.0,3.0
+real/OSM2015_lakes_data_big_06.csv,real/TIGER2018_EDGES_data_big_15.csv,2.0,2.0
 large_aws/Combo_006.csv,medium/bit_009.csv,1.0,1.0
 A128,B128,4.0,4.0
 real/OSM2015_parks_data_big_03.csv,real/TIGER2018_FACES_data_big_41.csv,2.0,3.0
@@ -145,7 +145,7 @@ large_aws/Combo_004.csv,medium/bit_009.csv,4.0,1.0
 real/OSM2015_lakes_data_big_05.csv,real/TIGER2018_EDGES_data_big_14.csv,2.0,3.0
 real/OSM2015_roads_data_big_02.csv,real/TIGER2018_FACES_data_big_26.csv,3.0,3.0
 A228,B228,2.0,2.0
-A187,B187,4.0,2.0
+A187,B187,4.0,4.0
 real/TIGER2018_EDGES_data_big_05.csv,real/TIGER2018_FACES_data_big_12.csv,3.0,3.0
 large_aws/Combo_001.csv,medium/diagonal_001.csv,1.0,1.0
 real/OSM2015_lakes_data_big_13.csv,real/OSM2015_roads_data_big_21.csv,3.0,3.0
@@ -160,7 +160,7 @@ large_aws/Combo_003.csv,medium/parcel_005.csv,2.0,1.0
 A217,B217,2.0,2.0
 large_aws/Combo_003.csv,medium/gaussian_005.csv,1.0,1.0
 large_aws/Combo_007.csv,medium/diagonal_005.csv,1.0,1.0
-real/TIGER2018_EDGES_data_big_03.csv,real/TIGER2018_FACES_data_big_04.csv,2.0,2.0
+real/TIGER2018_EDGES_data_big_03.csv,real/TIGER2018_FACES_data_big_04.csv,2.0,3.0
 A227,B227,2.0,2.0
 real/OSM2015_lakes_data_big_05.csv,real/TIGER2018_FACES_data_big_09.csv,3.0,3.0
 real/OSM2015_roads_data_big_03.csv,real/TIGER2018_FACES_data_big_41.csv,3.0,3.0
@@ -174,7 +174,7 @@ large_aws/Combo_004.csv,medium/diagonal_008.csv,1.0,1.0
 A229,B229,2.0,2.0
 large_aws/Combo_007.csv,medium/diagonal_009.csv,4.0,1.0
 A61,B61,4.0,2.0
-large_aws/Combo_002.csv,medium/diagonal_010.csv,2.0,1.0
+large_aws/Combo_002.csv,medium/diagonal_010.csv,2.0,2.0
 real/OSM2015_roads_data_big_03.csv,real/TIGER2018_FACES_data_big_20.csv,3.0,3.0
 real/TIGER2018_EDGES_data_big_02.csv,real/TIGER2018_FACES_data_big_03.csv,3.0,3.0
 large_aws/Combo_003.csv,medium/uniform_010.csv,1.0,1.0

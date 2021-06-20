@@ -19,7 +19,7 @@ class RegressionModel(ModelInterface):
     SCALE = 'all'
     MINUS_ONE = False
     # TARGET = 'join_selectivity'
-    TARGET = 'mbr_tests_selectivity'
+    # TARGET = 'mbr_tests_selectivity'
     # Descriptors
     drop_columns_feature_set1 = ['dataset1', 'dataset2', 'x1_x', 'y1_x', 'x2_x', 'y2_x', 'x1_y', 'y1_y', 'x2_y', 'y2_y',
                                  'join_selectivity', 'mbr_tests_selectivity', 'E0_x', 'E2_x', 'total_area_x', 'total_margin_x',
@@ -34,7 +34,7 @@ class RegressionModel(ModelInterface):
     # Descriptors + histograms + partitioning features
     drop_columns_feature_set3 = ['dataset1', 'dataset2', 'x1_x', 'y1_x', 'x2_x', 'y2_x', 'x1_y', 'y1_y', 'x2_y', 'y2_y',
                                  'join_selectivity', 'mbr_tests_selectivity', 'cardinality_x', 'cardinality_y']
-    DROP_COLUMNS = drop_columns_feature_set2
+    DROP_COLUMNS = drop_columns_feature_set3
     SELECTED_COLUMNS = []
 
     def __init__(self, model_name):
@@ -46,8 +46,7 @@ class RegressionModel(ModelInterface):
         elif model_name == 'random_forest':
             self.reg_model = RandomForestRegressor(max_depth=8, random_state=0)
 
-    def train(self, tabular_path: str, join_result_path: str, model_path: str, model_weights_path=None,
-              histogram_path=None) -> None:
+    def train(self, tabular_path: str, target: str, model_path: str, model_weights_path=None) -> None:
         """
         Train a regression model for spatial join cost estimator, then save the trained model to file
         """
@@ -55,7 +54,7 @@ class RegressionModel(ModelInterface):
         # Extract train and test data, but only use train data
         # X_train, y_train, X_test, y_test = datasets.load_tabular_features_hadoop(RegressionModel.DISTRIBUTION, RegressionModel.MATCHED, RegressionModel.SCALE, RegressionModel.MINUS_ONE)
         # X_train, y_train, X_test, y_test = datasets.load_tabular_features(join_result_path, tabular_path, RegressionModel.NORMALIZE, RegressionModel.MINUS_ONE, RegressionModel.TARGET)
-        X_train, y_train, join_df = datasets.load_data(tabular_path, RegressionModel.TARGET, RegressionModel.DROP_COLUMNS, RegressionModel.SELECTED_COLUMNS)
+        X_train, y_train, join_df = datasets.load_data(tabular_path, target, RegressionModel.DROP_COLUMNS, RegressionModel.SELECTED_COLUMNS)
         # X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=1)
         # query_val = [X_val.shape[0]]
         #
@@ -67,8 +66,7 @@ class RegressionModel(ModelInterface):
 
         pickle.dump(model, open(model_path, 'wb'))
 
-    def test(self, tabular_path: str, join_result_path: str, model_path: str, model_weights_path=None,
-             histogram_path=None) -> (float, float, float, float):
+    def test(self, tabular_path: str, target: str, model_path: str, model_weights_path=None) -> (float, float, float, float):
         """
         Evaluate the accuracy metrics of a trained  model for spatial join cost estimator
         :return mean_squared_error, mean_absolute_percentage_error, mean_squared_logarithmic_error, mean_absolute_error
@@ -77,7 +75,7 @@ class RegressionModel(ModelInterface):
         # Extract train and test data, but only use test data
         # X_train, y_train, X_test, y_test = datasets.load_tabular_features_hadoop(RegressionModel.DISTRIBUTION, RegressionModel.MATCHED, RegressionModel.SCALE, RegressionModel.MINUS_ONE)
         # X_train, y_train, X_test, y_test = datasets.load_tabular_features(join_result_path, tabular_path, RegressionModel.NORMALIZE, RegressionModel.MINUS_ONE, RegressionModel.TARGET)
-        X_test, y_test, join_df = datasets.load_data(tabular_path, RegressionModel.TARGET, RegressionModel.DROP_COLUMNS, RegressionModel.SELECTED_COLUMNS)
+        X_test, y_test, join_df = datasets.load_data(tabular_path, target, RegressionModel.DROP_COLUMNS, RegressionModel.SELECTED_COLUMNS)
 
         # Load the model and use it for prediction
         loaded_model = pickle.load(open(model_path, 'rb'))

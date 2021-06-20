@@ -23,7 +23,7 @@ class ClassificationModel(ModelInterface):
     MINUS_ONE = False
     # TARGET = 'join_selectivity'
     # TARGET = 'mbr_tests_selectivity'
-    TARGET = 'best_algorithm'
+    # TARGET = 'best_algorithm'
     # Descriptors
     drop_columns_feature_set1 = ['dataset1', 'dataset2', 'x1_x', 'y1_x', 'x2_x', 'y2_x', 'x1_y', 'y1_y', 'x2_y', 'y2_y',
                                  'join_selectivity', 'mbr_tests_selectivity', 'E0_x', 'E2_x', 'E0_y', 'E2_y', 'total_area_x', 'total_margin_x',
@@ -56,7 +56,7 @@ class ClassificationModel(ModelInterface):
     feature_set7 = ['join_cardinality', 'mbr_bnlj', 'mbr_pbsm', 'mbr_dj', 'mbr_repj', 'block_size_x', 'block_size_y', 'intersection_area1', 'intersection_area2', 'jaccard_similarity']
 
     DROP_COLUMNS = []
-    SELECTED_COLUMNS = feature_set6
+    SELECTED_COLUMNS = feature_set3
 
     def __init__(self, model_name):
         self.clf_model = DecisionTreeClassifier()
@@ -65,14 +65,13 @@ class ClassificationModel(ModelInterface):
         elif model_name == 'clf_random_forest':
             self.clf_model = RandomForestClassifier(max_depth=8, random_state=0)
 
-    def train(self, tabular_path: str, join_result_path: str, model_path: str, model_weights_path=None,
-              histogram_path=None) -> None:
+    def train(self, tabular_path: str, target: str, model_path: str, model_weights_path=None) -> None:
         """
         Train a classification model for spatial join cost estimator, then save the trained model to file
         """
 
         # Extract train and test data, but only use train data
-        X_train, y_train, join_df = datasets.load_data(tabular_path, ClassificationModel.TARGET, ClassificationModel.DROP_COLUMNS, ClassificationModel.SELECTED_COLUMNS)
+        X_train, y_train, join_df = datasets.load_data(tabular_path, target, ClassificationModel.DROP_COLUMNS, ClassificationModel.SELECTED_COLUMNS)
 
         # Fit and save the model
         model = self.clf_model.fit(X_train, y_train)
@@ -85,13 +84,12 @@ class ClassificationModel(ModelInterface):
         output_f.writelines('feature_name,importance_score\n')
 
         for fname, fscore in zip(ClassificationModel.SELECTED_COLUMNS, importances):
-            print('{},{}'.format(fname, fscore))
+            # print('{},{}'.format(fname, fscore))
             output_f.writelines('{},{}\n'.format(fname, fscore))
 
         output_f.close()
 
-    def test(self, tabular_path: str, join_result_path: str, model_path: str, model_weights_path=None,
-             histogram_path=None) -> (float, float, float, float):
+    def test(self, tabular_path: str, target: str, model_path: str, model_weights_path=None) -> (float, float, float, float):
         """
         Evaluate the accuracy metrics of a trained  model for spatial join cost estimator
         :return mean_squared_error, mean_absolute_percentage_error, mean_squared_logarithmic_error, mean_absolute_error
@@ -100,7 +98,7 @@ class ClassificationModel(ModelInterface):
         # Extract train and test data, but only use test data
         # X_train, y_train, X_test, y_test = datasets.load_tabular_features_hadoop(RegressionModel.DISTRIBUTION, RegressionModel.MATCHED, RegressionModel.SCALE, RegressionModel.MINUS_ONE)
         # X_train, y_train, X_test, y_test = datasets.load_tabular_features(join_result_path, tabular_path, RegressionModel.NORMALIZE, RegressionModel.MINUS_ONE, RegressionModel.TARGET)
-        X_test, y_test, join_df = datasets.load_data(tabular_path, ClassificationModel.TARGET, ClassificationModel.DROP_COLUMNS, ClassificationModel.SELECTED_COLUMNS)
+        X_test, y_test, join_df = datasets.load_data(tabular_path, target, ClassificationModel.DROP_COLUMNS, ClassificationModel.SELECTED_COLUMNS)
 
         # Load the model and use it for prediction
         loaded_model = pickle.load(open(model_path, 'rb'))

@@ -62,9 +62,10 @@ we would recommend you to install [Anaconda](https://docs.anaconda.com/anaconda/
 
 ### Brief description of the source code
 * main.py: the endpoint to run the program.
-* 
+* regression_model.py: implementation of regression models to estimate join selectivity and MBR tests selectivity.
+* classification_model.py: implementation of classification models to estimate the best join algorithm in terms of running time.
 * datasets.py: data pre-processing module
-* data/histograms: contains csv files, which are the histograms of input datasets (to be fed into the CNN layers).
+* data/histograms: contains csv files, which are the histograms of input datasets.
 * data/tabular: contains csv files, which are the tabular feature of the input datasets (to be fed into the MLP layer).
 * data/join_results: contains csv files which are the results of spatial join queries. Columns: dataset 1, dataset 2, join result size, # of MBR test, execution time.
 * trained_models: where you save the trained models.
@@ -72,6 +73,21 @@ we would recommend you to install [Anaconda](https://docs.anaconda.com/anaconda/
 
 ### Train and test proposed models
 1. Join selectivity estimation model
+```shell script
+python main.py --model random_forest --tab data/train_and_test_all_features_split/train_join_results_small_x_small.csv --path trained_models/model_join_selectivity.h5 --weights trained_models/model_weights_join_selectivity.h5 --target join_selectivity --train
+python main.py --model random_forest --tab data/train_and_test_all_features_split/test_join_results_small_x_small.csv --path trained_models/model_join_selectivity.h5 --weights trained_models/model_weights_join_selectivity.h5 --target join_selectivity --no-train
+```
+
 2. MBR tests selectivity estimation model
+```shell script
+python main.py --model random_forest --tab data/train_and_test_all_features_split/train_join_results_small_x_small.csv --path trained_models/model_mbr_tests_selectivity.h5 --weights trained_models/model_weights_mbr_tests_selectivity.h5 --target mbr_tests_selectivity --train
+python main.py --model random_forest --tab data/train_and_test_all_features_split/test_join_results_small_x_small.csv --path trained_models/model_mbr_tests_selectivity.h5 --weights trained_models/model_weights_mbr_tests_selectivity.h5 --target mbr_tests_selectivity --no-train
+```
+
 3. Algorithm selection model
+```shell script
+python main.py --model clf_random_forest --tab data/train_and_test_all_features_split/train_join_results_combined_v3.csv --path trained_models/model_best_algorithm.h5 --weights trained_models/model_weights_best_algorithm.h5 --target best_algorithm --train
+python main.py --model clf_random_forest --tab data/train_and_test_all_features_split/test_join_results_combined_v3.csv --path trained_models/model_best_algorithm.h5 --weights trained_models/model_weights_best_algorithm.h5 --target best_algorithm --no-train
+
+```
 
