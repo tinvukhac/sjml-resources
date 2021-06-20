@@ -10,9 +10,9 @@ Management (CIKM 2021).
 
     1.2. [Real datasets](https://drive.google.com/drive/folders/1wY9F3p4qOdvxkjXsIl2GGHTk_lJYiRds?usp=sharing) (Section 3.2)
 
-2. [Spatial join execution datasets](https://drive.google.com/drive/folders/1ITSpPZZGFwP7qqBIcOvctX2SC74sFIVu?usp=sharing) (Section 4.2)
+2. [Spatial join execution datasets](https://github.com/tinvukhac/sjml-resources/tree/main/data/ranked_join_results) (Section 4.2)
 
-3. [Datasets for spatial join cost models](https://drive.google.com/drive/folders/196Sj0JizSCYNrnpyR2AL9TRxvEg2ioNe?usp=sharing) (Section 4.3)
+3. [Datasets for spatial join cost models](https://github.com/tinvukhac/sjml-resources/tree/main/data/train_and_test_all_features) (Section 4.3)
 
 ## Spatial data generators
 Research on the spatial data generators were published at [Spatial Gems 2019](https://www.spatialgems.net/spatial-gems-collection) 
