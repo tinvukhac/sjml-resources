@@ -22,7 +22,7 @@ and [SIGSPATIAL 2020](https://sigspatial2020.sigspatial.org/accepted-papers/).
 Please go to [Spider Web](https://spider.cs.ucr.edu/) to generate and visualize your spatial datasets.
 
 ### 2. Generate data using [open-source Python program](https://github.com/tinvukhac/spatialdatagenerators). 
-We also already added the program 'generator.py' to this repository. It should be executed on Python 3.
+We also already added the program 'generator.py' to this repository. It should be executed with Python 3.
 
 ```shell script
 # Show the instructions to use the program
@@ -58,10 +58,11 @@ we would recommend you to install [Anaconda](https://docs.anaconda.com/anaconda/
 2. Add conda to your $PATH variable: /home/your_username/anaconda3/condabin
 3. Move to the project directory: cd */deep-spatial-join
 4. Follow this tutorial to create an environment from our environment.yml file: [Creating an environment from an environment.yml file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file)
-5. Activate the environment. Now you are ready to play with the model!  
+5. Activate the environment. Now you are ready to play with the models!  
 
 ### Brief description of the source code
 * main.py: the endpoint to run the program.
+* 
 * datasets.py: data pre-processing module
 * data/histograms: contains csv files, which are the histograms of input datasets (to be fed into the CNN layers).
 * data/tabular: contains csv files, which are the tabular feature of the input datasets (to be fed into the MLP layer).

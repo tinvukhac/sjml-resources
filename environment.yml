@@ -2,10 +2,11 @@ name: base
 channels:
   - defaults
 dependencies:
+  - _anaconda_depends=2020.07=py38_0
   - _ipyw_jlab_nb_ext_conf=0.1.0=py38_0
   - _libgcc_mutex=0.1=main
   - alabaster=0.7.12=py_0
-  - anaconda=2020.11=py38_0
+  - anaconda=custom=py38_1
   - anaconda-client=1.7.2=py38_0
   - anaconda-navigator=1.10.0=py38_0
   - anaconda-project=0.8.4=py_0
@@ -36,9 +37,9 @@ dependencies:
   - bottleneck=1.3.2=py38heb32a55_1
   - brotlipy=0.7.0=py38h7b6447c_1000
   - bzip2=1.0.8=h7b6447c_0
-  - ca-certificates=2020.10.14=0
+  - ca-certificates=2021.1.19=h06a4308_1
   - cairo=1.14.12=h8948797_3
-  - certifi=2020.6.20=pyhd3eb1b0_3
+  - certifi=2020.12.5=py38h06a4308_0
   - cffi=1.14.3=py38he30daa8_0
   - chardet=3.0.4=py38_1003
   - click=7.1.2=py_0
@@ -76,6 +77,7 @@ dependencies:
   - fribidi=1.0.10=h7b6447c_0
   - fsspec=0.8.3=py_0
   - future=0.18.2=py38_1
+  - geos=3.8.0=he6710b0_0
   - get_terminal_size=1.0.0=haa9412d_0
   - gevent=20.9.0=py38h7b6447c_0
   - glib=2.66.1=h92f7085_0
@@ -136,6 +138,7 @@ dependencies:
   - libgfortran-ng=7.3.0=hdf63c60_0
   - liblief=0.10.1=he6710b0_0
   - libllvm10=10.0.1=hbcb73fb_5
+  - libllvm9=9.0.1=h4a3c616_1
   - libpng=1.6.37=hbc83047_0
   - libsodium=1.0.18=h7b6447c_0
   - libspatialindex=1.9.3=he6710b0_0
@@ -185,7 +188,7 @@ dependencies:
   - numpydoc=1.1.0=pyhd3eb1b0_1
   - olefile=0.46=py_0
   - openpyxl=3.0.5=py_0
-  - openssl=1.1.1h=h7b6447c_0
+  - openssl=1.1.1j=h27cfd23_0
   - packaging=20.4=py_0
   - pandas=1.1.3=py38he6710b0_0
   - pandoc=2.11=hb0f4dca_0
@@ -255,15 +258,18 @@ dependencies:
   - rtree=0.9.4=py38_1
   - ruamel_yaml=0.15.87=py38h7b6447c_1
   - scikit-image=0.17.2=py38hdf5156a_0
+  - scikit-learn=0.24.1=py38ha9443f7_0
   - scipy=1.5.2=py38h0b6359f_0
   - seaborn=0.11.0=py_0
   - secretstorage=3.1.2=py38_0
   - send2trash=1.5.0=py38_0
   - setuptools=50.3.1=py38h06a4308_1
+  - shapely=1.7.1=py38h98ec03d_0
   - simplegeneric=0.8.1=py38_2
   - singledispatch=3.4.0.3=py_1001
   - sip=4.19.13=py38he6710b0_0
   - six=1.15.0=py38h06a4308_0
+  - snappy=1.1.8=he6710b0_0
   - snowballstemmer=2.0.0=py_0
   - sortedcollections=1.2.1=py_0
   - sortedcontainers=2.2.2=py_0
@@ -324,16 +330,24 @@ dependencies:
   - zstd=1.4.5=h9ceee32_0
   - pip:
     - absl-py==0.11.0
+    - astetik==1.11.1
     - astunparse==1.6.3
+    - boost-histogram==0.11.1
     - cachetools==4.2.0
+    - chances==0.1.9
     - flatbuffers==1.12
     - gast==0.3.3
+    - geonamescache==1.2.0
     - google-auth==1.24.0
     - google-auth-oauthlib==0.4.2
     - google-pasta==0.2.0
     - grpcio==1.32.0
+    - hist==2.0.1
+    - histoprint==1.6.0
     - keras==2.4.3
     - keras-preprocessing==1.1.2
+    - kerasplotlib==0.1.6
+    - lightgbm==3.2.1
     - markdown==3.3.3
     - oauthlib==3.1.0
     - opt-einsum==3.3.0
@@ -342,11 +356,14 @@ dependencies:
     - pyasn1-modules==0.2.8
     - requests-oauthlib==1.3.0
     - rsa==4.7
-    - scikit-learn==0.24.1
+    - sklearn==0.0
+    - sklearn-ranking==0.0.1
+    - talos==1.0
     - tensorboard==2.4.1
     - tensorboard-plugin-wit==1.8.0
     - tensorflow==2.4.1
     - tensorflow-estimator==2.4.0
     - termcolor==1.1.0
+    - wrangle==0.6.7
     - wrapt==1.12.1
 prefix: /home/tinvukhac/anaconda3
