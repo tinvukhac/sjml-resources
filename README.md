@@ -91,3 +91,12 @@ python main.py --model clf_random_forest --tab data/train_and_test_all_features_
 
 ```
 
+### How to train and test your own models?
+* You can train/test in a specific group of datasets by using the corresponding datasets at data/*.
+* What if you want to train/test with your own data?
+1. Run the join queries.
+2. Export input dataset's histograms.
+3. Export input dataset's spatial descriptors.
+4. Make sure that the training/testing data files are in correct format (refer to existing files).
+5. Train your own models. 
+
