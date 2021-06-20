@@ -15,17 +15,37 @@ Management (CIKM 2021).
 3. [Datasets for spatial join cost models](https://drive.google.com/drive/folders/196Sj0JizSCYNrnpyR2AL9TRxvEg2ioNe?usp=sharing) (Section 4.3)
 
 ## Spatial data generators
-1. Generate data using Spider
+Research on the spatial data generators were published at [Spatial Gems 2019](https://www.spatialgems.net/spatial-gems-collection) 
+and [SIGSPATIAL 2020](https://sigspatial2020.sigspatial.org/accepted-papers/).
+### 1. Generate data using Spider
 
 Please go to [Spider Web](https://spider.cs.ucr.edu/) to generate and visualize your spatial datasets.
-2. Generate data using open-source Python program
+
+### 2. Generate data using [open-source Python program](https://github.com/tinvukhac/spatialdatagenerators). 
+We also already added the program 'generator.py' to this repository. It should be executed on Python 3.
+
 ```shell script
-# Show the help
+# Show the instructions to use the program
 python3 generator.py -h
 # Generate a sample of 100 data points with uniform distribution
 python3 generator.py --dist uniform --card 100 --dim 2 --geo point --output uniform_sample --format csv
 ```
-3. Generate data using Spark API
+
+### 3. Generate data using Spark API
+We use [Beast](https://bitbucket.org/eldawy/beast/src/master/), our open-source system for Big Exploratory Analytics for Spatio-temporal data, 
+to generate large spatial datasets using Spark API. To run a program built on top of Beast, Spark 3.0 and HDFS 3.2 are required in your machine.
+
+First, you should create a maven project and add Beast as a maven dependency. The detailed instructions can be found [here](https://bitbucket.org/eldawy/beast/src/master/).
+We also provide [a template project](https://bitbucket.org/eldawy/beast-examples/src/master/) that was already configured with required dependencies.
+
+Once you have an Scala example that can use Beast's functionalities, you can easily generate a spatial dataset using the 
+following commands:
+```scala
+import edu.ucr.cs.bdlab.beast._
+import edu.ucr.cs.bdlab.beast.generator._
+val generatedData: SpatialRDD = sparkContext.generateSpatialData(UniformDistribution, 100, 
+  opts = Seq(SpatialGenerator.Dimensions -> 2, PointBasedGenerator.GeometryType -> "point"))
+``` 
 
 ## Train and test spatial join cost estimation models
 ### Required Environment
