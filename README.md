@@ -1,7 +1,6 @@
 # Towards a Learned Cost Model for Distributed Spatial Join: Data, Code & Models
 
-This is the end-point for the resources of a paper submitted to the 30th ACM International Conference on Information and Knowledge 
-Management (CIKM 2021).
+This is the end-point for the resources of the paper "A Learned Query Optimizer for Spatial Join", Tin Vu, Alberto Belussi, Sara Migliorini, and Ahmed Eldawy, 29th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (ACM SIGSPATIAL 2021).
 
 ## Datasets and corresponding section in the paper
 1. [Join input datasets](https://drive.google.com/drive/folders/1BT1UsrvG1MB1bWCVYDWk6XLOZFIOLcj0?usp=sharing) 
